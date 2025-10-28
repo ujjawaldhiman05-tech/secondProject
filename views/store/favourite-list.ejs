@@ -1,46 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("partials/head") %>
+  <%- include("../partials/head") %>
   <body class="bg-gray-50">
     <!-- Header/Navbar -->
-    <%- include("partials/header") %>
+    <%- include("../partials/header") %>
 
     <!-- Hero Section -->
     <section class="pt-24 md:pt-32 pb-16 md:pb-24 px-4">
       <div class="container mx-auto max-w-6xl">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="grid md:grid-cols-1 gap-8 items-center">
           <div class="space-y-6">
             <h1
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900"
+              class="text-2xl text-[#155dfc] md:text-5xl lg:text-6xl font-bold text-center"
             >
-              Your Next Home Awaits
+              Here are our Favourite list :
             </h1>
-            <p class="text-lg md:text-xl text-gray-600">
-              Explore thousands of rental listings across top cities. Compare
-              prices, check amenities, and move into a place that truly feels
-              like home — all with ease and confidence.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a
-                type="button"
-                href="/addHome"
-                class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-              >
-                Get Started
-              </a>
-            </div>
-          </div>
-          <div class="hidden md:block">
-            <!-- Placeholder for hero image -->
-            <div
-              class="aspect-video rounded-xl flex items-center justify-center"
-            >
-              <img
-                src="/images/heroSection.webp"
-                alt=""
-                class="w-full rounded-xl"
-              />
-            </div>
           </div>
         </div>
       </div>
@@ -71,6 +45,11 @@
                 ⭐ <%= element.rating %>
               </p>
             </div>
+            <button
+              class="bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-semibold py-2 px-8 rounded-lg shadow-md transition transform focus:outline-none mt-3 focus:ring-2 focus:ring-indigo-300"
+            >
+              Book
+            </button>
           </div>
         </div>
         <% }) %>
