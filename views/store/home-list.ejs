@@ -34,7 +34,7 @@
               <%= element.houseName %>
             </h2>
             <p class="text-gray-500 text-sm">📍<%= element.location %></p>
-            <div class="flex items-center justify-between pt-2">
+            <div class="flex items-center justify-between pt-2 scroll-pb-4">
               <p class="text-indigo-600 font-semibold text-lg">
                 ₹<%= element.price %>
                 <span class="text-gray-500 text-sm">/night</span>
@@ -45,11 +45,12 @@
                 ⭐ <%= element.rating %>
               </p>
             </div>
-            <button
-              class="bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-semibold py-2 px-8 rounded-lg shadow-md transition transform focus:outline-none mt-3 focus:ring-2 focus:ring-indigo-300"
+            <a
+              href="/home-list/<%= element.id %>"
+              class="bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-semibold py-2 px-8 rounded-lg shadow-md transition transform focus:outline-none focus:ring-2 focus:ring-indigo-300"
+              >Details</a
             >
-              Book
-            </button>
+            <%- include("../partials/favourite",{home:element}) %>
           </div>
         </div>
         <% }) %>

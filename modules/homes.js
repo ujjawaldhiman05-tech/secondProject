@@ -11,16 +11,6 @@ module.exports = class Home {
     this.photoUrl = photoUrl;
   }
 
-  save() {
-    Home.allHomes((addDetails) => {
-      addDetails.push(this);
-      const filePath = path.join(mainPath, "data", "homesDetails.json");
-      fs.writeFile(filePath, JSON.stringify(addDetails), (err) => {
-        console.log(err);
-      });
-    });
-  }
-
   static allHomes(callback) {
     const fileContent = path.join(mainPath, "data", "homesDetails.json");
     fs.readFile(fileContent, (err, data) => {
@@ -40,6 +30,25 @@ module.exports = class Home {
         // Invalid JSON -> return empty array
         return callback([]);
       }
+    });
+  }
+
+  static findById(homeID, callback) {
+    Home.allHomes((homes) => {
+      const homeFound = homes.find((element) => element.id == homeID);
+      console.log(homeFound);
+      callback(homeFound);
+    });
+  }
+
+  save() {
+    this.id = Math.random().toString();
+    Home.allHomes((addDetails) => {
+      addDetails.push(this);
+      const filePath = path.join(mainPath, "data", "homesDetails.json");
+      fs.writeFile(filePath, JSON.stringify(addDetails), (err) => {
+        console.log(err);
+      });
     });
   }
 };
