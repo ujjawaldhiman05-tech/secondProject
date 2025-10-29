@@ -45,16 +45,20 @@
                 ⭐ <%= element.rating %>
               </p>
             </div>
-            <button
+            <a
+              href="/host-edit-home/<%= element.id %>?editing=true"
               class="bg-green-600 hover:bg-green-700 active:scale-95 text-white font-semibold py-2 px-8 rounded-lg shadow-md transition transform focus:outline-none mt-3 focus:ring-2 focus:ring-indigo-300"
             >
               Edit
-            </button>
-            <button
-              class="bg-red-600 hover:bg-red-700 active:scale-95 text-white font-semibold py-2 px-8 rounded-lg shadow-md transition transform focus:outline-none mt-3 focus:ring-2 focus:ring-indigo-300"
-            >
-              Delete
-            </button>
+            </a>
+            <form action="/host-deleteHome/<%= element.id %>" method="POST">
+              <button
+                type="submit"
+                class="bg-red-600 hover:bg-red-700 active:scale-95 text-white font-semibold py-2 px-8 rounded-lg shadow-md transition transform focus:outline-none mt-3 focus:ring-2 focus:ring-indigo-300"
+              >
+                Delete
+              </button>
+            </form>
           </div>
         </div>
         <% }) %>

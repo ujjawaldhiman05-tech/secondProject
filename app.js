@@ -17,6 +17,5 @@ app.use(notFound);
 
 const PORT = 4000;
 app.listen(PORT, () => {
-  console.log(mainPath);
   console.log(`server has started on ${PORT}`);
 });

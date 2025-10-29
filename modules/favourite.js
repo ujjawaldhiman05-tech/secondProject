@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 
 const favouriteDataPath = path.join(mainPath, "data", "favourite.json");
+
 module.exports = class favourite {
   static addToFavourite(homeID, callback) {
     favourite.getFavourites((data) => {
@@ -13,6 +14,16 @@ module.exports = class favourite {
         data.push(homeID);
         fs.writeFile(favouriteDataPath, JSON.stringify(data), callback);
       }
+    });
+  }
+
+  static deleteFavourite(homeId, callback) {
+    favourite.getFavourites((homeIds) => {
+      homeIds = homeIds.filter((delId) => {
+        return homeId != delId;
+      });
+
+      fs.writeFile(favouriteDataPath, JSON.stringify(homeIds), callback);
     });
   }
 
@@ -27,6 +38,7 @@ module.exports = class favourite {
         const parsed = JSON.parse(data);
         if (Array.isArray(parsed)) {
           return callback(parsed);
+          a;
         }
         // If file contains something else, return empty array
         return callback([]);
